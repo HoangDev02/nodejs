@@ -1,0 +1,29 @@
+<div class="container">
+   <div class="row">
+      <div class="register-login">
+         <h1 class="logo-login">login</h1>
+      {{#if messages.error}}
+         {{{messages.error}}}
+      {{/if}}
+      <form action="/auth/login" method="post">
+         <div id="email">
+            <label for="email">email:</label>
+            <input type="email" class="email" name="email" required>
+         </div>
+         <div id="password">
+            <label for="password">password:</label>
+            <input type="password" class="password" name="password"  required>
+         </div>
+         <div class="d-grid gap-2 col-6 mx-auto">
+
+            <button type="submit" class="btn btn-outline-success btn-login ">login</button>
+         </div>
+      </form>
+      <a href="/auth/register" class="create">Create Account</a>
+      </div>
+      
+   </div>
+</div>
+
+
+

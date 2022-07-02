@@ -1,0 +1,40 @@
+ <div class="container">
+    <div class="row g-2">
+    <div class="col-lg-2">
+      
+            <h4>Lọc</h4>
+            <p>Danh sách</p>
+            <div class="checkbox">
+                <p> <input type="radio" name="checkbox-1" id="checkbox-1"> <span class="text-checkbox">tất cả </span> </p>
+                <p>  <input type="radio" name="checkbox-1" id="checkbox-1"><span class="text-checkbox">Ngoại ngữ</span> </p>
+                <p> <input type="radio" name="checkbox-1" id="checkbox-1"> <span class="text-checkbox">Phát triển bản thân</span>  </p>
+                <p> <input type="radio" name="checkbox-1" id="checkbox-1"><span class="text-checkbox">Nghệ thuật đời sống </span> </p>
+            </div>
+           
+    </div>
+     {{#each courses}}
+        <div class="col-lg-3">
+            <div class="card h-100">
+                <a href="/courses/{{this.slug}}">
+                    <img src="{{this.image}}" class="card-img-top" alt="{{this.name}}">
+                </a>
+                <div class="card-body">
+                    <p class="card-text">{{this.course}}</p>
+                    <a href="/courses/{{this.slug}}">
+                        <h5 class="card-title">{{this.name}}</h5>
+                    </a>
+                    <p class="card-text " >{{this.description}}</p>
+                    <p class="card-coin px-3">{{this.coin}}đ</p>
+                    
+                    <a href="/courses/{{this.slug}}" class="btn btn-primary">Mua khoa hoc</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+  </div>
+    
+ </div>
+  
+  <script>
+    
+  </script>

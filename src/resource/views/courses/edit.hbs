@@ -1,0 +1,36 @@
+<div class="mt-4">
+    <h3>cập nhật khóa học</h3>
+
+    <form class="mt-4" method="post" action="/courses/{{course._id}}?_method=PUT">
+    <div class="mb-3">
+        <label for="name">tên khóa học</label>
+        <input type="text" class="form-control" value="{{course.name}}" id="name" name="name">
+    </div>
+    <div class="mb-3">
+        <label for="description">Mô tả</label>
+        <textarea type="text" class="form-control" id="description" name="description">{{course.description}}</textarea>
+    </div>
+    <div class="mb-3">
+        <label for="videoID" >VideoID</label>
+        <input type="text" class="form-control" value="{{course.videoID}}" id="videoID" name="videoID">
+    </div>
+    <div class="mb-3">
+        <label for="lever">Trình độ</label>
+        <input type="text" class="form-control" value="{{course.lever}}" id="lever" name="lever">
+    </div>
+     <div class="mb-3">
+        <label for="benefitOne">Lợi ích khóa học 1</label>
+        <input type="text" class="form-control" value="{{course.benefitOne}}" id="benefitOne" name="benefitOne">
+    </div>
+      <div class="mb-3">
+        <label for="benefitTow">Lợi ích khóa học 2 </label>
+        <input type="text" class="form-control" value="{{course.benefitTow}}" id="benefitTow" name="benefitTow">
+    </div>
+      <div class="mb-3">
+        <label for="benefitThree">Lợi ích khóa học 3</label>
+        <input type="text" class="form-control" value="{{course.benefitThree}}" id="benefitThree" name="benefitThree">
+    </div>
+    <button type="submit" class="btn btn-primary">Lưu</button>
+    </form>
+</div>
+

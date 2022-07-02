@@ -1,0 +1,45 @@
+
+<div class="container mt-3">
+    <div class="row">
+         
+        <div class="col-lg-7 ">
+            <h1 class="title-name">{{coures.name}}</h1>
+             <p class="center-title">{{coures.description}}</p>
+             <div class="col-10">
+                <h4>Lợi ích khóa học</h4>
+                <p><i class='bx bx-star px-2 mt-2'></i>{{coures.benefitOne}}</p>  
+                <p><i class='bx bx-star px-2 mt-2'></i>{{coures.benefitTow}}</p>  
+                <p><i class='bx bx-star px-2 mt-2'></i>{{coures.benefitThree}}</p>  
+             </div>
+             
+             <p>{{coures.title}}</p>
+             
+        </div>
+         <div class="col-lg-4 ">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{coures.videoID}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="nav video-title">
+                <h1 class="title-name">{{coures.name}}</h1>
+                <p class="card-coin px-3 coin">{{coures.coin}}<span>đ</span></p>
+                <button class="btn btn-outline-warning btn-cart ">Thêm vào giỏ hàng</button>
+                <button class="btn btn-outline-warning mt-2"><a href="/shoping" class="shoping mt-2">Mua ngay</a></button>
+                  <p><i class='bx bx-star px-2 mt-2'></i>{{coures.lever}}</p>
+            </div>
+        </div>
+       
+    </div>
+</div>
+
+<script>
+    var btn =  document.querySelector('.btn-cart')
+
+    btn.addEventListener("click", function(event) {
+        var btnItem = event.target
+        var product = btnItem.parentElement
+        var productName = product.querySelector('h1').innerText
+        var productCoin = product.querySelector('p').innerText
+        console.log(productName)
+        addcart(productName, productCoin)
+    })
+
+   
+</script>

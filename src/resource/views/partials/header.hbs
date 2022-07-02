@@ -1,0 +1,48 @@
+
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark header">
+  <div class="container">
+    <div class="container-fluid">     
+       <div class="header-logo" > 
+        <a class="navbar-brand header-logo" href="/">
+          <img src="https://donga.edu.vn/Portals/0/article/Cover/hoa%20AD_06_05_2022_04_46_16.png" alt="LOGO" width="50" height="30" class="d-inline-block align-text-top">
+          DONG A
+        </a>
+        <form class="d-flex" role="search" action="/search/course" method="get">
+          <input class="form-control me-2 search-header" type="search" placeholder="Tìm kiếm khóa học" aria-label="Search" name="search">
+          <button class="btn btn-outline-warning" type="submit">Search</button>
+        </form>
+      </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class=" collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+      <a href="/shoping"><i class='icon-header bx bx-cart-alt'></i></a>
+      <ul class="navbar-nav ml-auto mb-2 mb-lg-0 ">
+   
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://e7.pngegg.com/pngimages/358/473/png-clipart-computer-icons-user-profile-person-child-heroes.png" alt="" class="user-avatar">
+            users
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/user/update">Thông tin của tôi</a></li>
+            <li><a class="dropdown-item" href="/courses/create">Đăng khóa học</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/me/stored/courses">khóa học của tôi</a></li>
+             
+          
+            <li><hr class="dropdown-divider"></li> 
+            <li class="submit-header">
+               <form action="/auth/logout?_method=delete" method="post">
+                <button type="submit">logout</button>
+               </form>
+            </li>
+      
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </div>
+</nav>
