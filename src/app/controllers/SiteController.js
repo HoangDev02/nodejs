@@ -19,6 +19,7 @@ class SiteController {
         .catch(error => next(error))
 
       }
+      
 
 }
 

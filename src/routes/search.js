@@ -6,6 +6,7 @@ const searchController = require('../app/controllers/searchControllers')
 
 // newsController.index
 router.get('/course', searchController.show)
-router.get('/course', searchController.search)
+
+router.get('/course/:key', searchController.search)
 
 module.exports = router;   
