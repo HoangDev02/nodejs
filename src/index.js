@@ -7,12 +7,12 @@ const express = require('express');
 
 const morgan = require('morgan');
 const handlebars = require('express-handlebars');
+const paypal = require('paypal-rest-sdk');
 const methodOverride = require('method-override')
 const db = require('./config/db')
 const cors = require('cors')
 const dotenv = require('dotenv')
 const cookieParser = require('cookie-parser')
-const http = require('http');
 const SortMiddleware = require('./app/middlewares/sortMiddlewares')
 
 const passport = require('passport')
@@ -20,7 +20,7 @@ const flash = require('express-flash')
 const session = require('express-session')
 const route = require('./routes')
 
-
+//chay mongodb
 db.connect();
 dotenv.config();
 
@@ -53,6 +53,7 @@ app.engine('hbs',
   helpers: {
     sum : (a,b) => a+b,
     sortable: (filed, sort) => {
+      
       const sortType = filed === sort.column ? sort.type: 'default'
       const icons = {
         default: 'bx bx-sort',
@@ -77,6 +78,12 @@ app.engine('hbs',
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resource', 'views'));
 
+
+paypal.configure({
+  'mode': 'sandbox', //sandbox or live
+  'client_id': 'AU7WLEejvLiwYIOvtfHmQn2SVEhTSjxgsfz0GYdV4otNfNltrp5uY7Jg3KVHxV8JFjIm44ODUYn_FQUZ',
+  'client_secret': 'EBy8D610On5VYiAIHzTWE6vgCoV3YtePWZMh0ww2WtDkwpkV8_MP5chzWAgZ8PjRyRZlqwXy6253XYRh'
+});
 
 app.use(SortMiddleware)
 

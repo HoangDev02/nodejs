@@ -12,7 +12,7 @@ const authcontroller = {
             if (err) { return next(err); 
             }
         res.redirect('/auth/login');
-          });
+        });
     },
     
   

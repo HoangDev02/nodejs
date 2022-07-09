@@ -8,15 +8,15 @@
     </div>
     <div class="mb-3">
         <label for="sex">Giới tính</label>
-        <textarea type="text" class="form-control" id="sex" name="sex">{{users.sex}}</textarea>
+        <input type="text" class="form-control" id="sex" name="sex" value="{{users.sex}}">
     </div>
     <div class="mb-3">
         <label for="date" >Ngày sinh</label>
-        <input type="text" class="form-control" value="{{users.date}}" id="date" name="date">
+        <input type="date" class="form-control" value="{{users.date}}" id="dât" name="date">
     </div>
     <div class="mb-3">
         <label for="phone">số điện thoại</label>
-        <input type="text" class="form-control" value="{{users.phone}}" id="phone" name="phone">
+        <input type="number" class="form-control" value="{{users.phone}}" id="phone" name="phone">
     </div>
     <button type="submit" class="btn btn-primary">Lưu</button>
     </form>

@@ -1,8 +1,12 @@
 @import '_variables';
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
 
+
 * {
-  font-family: Open Sans;
+	display: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family:Open Sans ;
 }
 
 
@@ -42,7 +46,17 @@
     margin-left: 30%;
 	
 }
-.description {
+.search-description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 25px;
+    -webkit-line-clamp: 3;
+    height: 75px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+	opacity: 0.8;
+}
+.text-description {
 	width: 390px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -51,6 +65,26 @@
     height: 75px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
+	opacity: 0.8;
+}
+.text-center {
+    margin-top: 200px;
+    font-size: 20px;
+    color: white;
+}
+.text-center a {
+	color: #ffffff;
+	text-decoration: none;
+}
+.text-course {
+	color: #969556;
+	font-size: 20px;
+	font-family: 'Courier New', Courier, monospace;
+	
+}
+.text-name {
+	text-decoration: none;
+	color: rgb(0, 0, 0);
 }
 
 section {
@@ -321,14 +355,36 @@ section {
     text-decoration: none;
     
 }
-#username {
-    margin-left: 24px;
-    margin-bottom: 10px;
-}
+// #username {
+//     margin-left: 24px;
+//     margin-bottom: 10px;
+// }
 .username {
     padding: 0 28px;
 }
 
 .text-checkbox {
     margin-left: 10px;
+}
+.paypayl {
+    /* background: #e5b1b1; */
+    width: 170px;
+    height: 150px;
+    border-radius: 30px;
+    border: 1px solid #E0E0E0;
+}
+.paypayl:hover{
+	border: 3px solid #FCCF00;
+    background-color: #FEF5CC;
+}
+.img-paypal {
+   
+    height: 60px;
+    margin-left: 7px;
+    margin-top: 20px;
+    
+}
+.text-paypal {
+    margin-left: 16px;
+    font-size: 20px;
 }

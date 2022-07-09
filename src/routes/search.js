@@ -5,8 +5,9 @@ const router = express.Router();
 const searchController = require('../app/controllers/searchControllers')
 
 // newsController.index
-router.get('/course', searchController.show)
-
-router.get('/course/:key', searchController.search)
+// router.get('/course', searchController.show)
+router.get('/course', searchController.search)
+router.get('/course/coin', searchController.coin)
+router.get('/course/:key', searchController.category)
 
 module.exports = router;   

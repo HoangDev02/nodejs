@@ -21,10 +21,6 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    isadmin: {
-      type: String,
-      default: false,
-    },
     sex: {
       type: String,
       unique: true,

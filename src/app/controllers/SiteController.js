@@ -1,6 +1,4 @@
 const Coures = require('../models/Course');
-const user = require('../models/User')
-
 
 const {mutipleMongooseToObject} = require('../../unitl/mongoose')
 class SiteController {
@@ -13,7 +11,7 @@ class SiteController {
         .then(courses =>  {
           res.render('home', {
             courses : mutipleMongooseToObject(courses),
-            
+        
           })
         })
         .catch(error => next(error))

@@ -1,4 +1,4 @@
-const Courses = require('../models/Course');
+const Courses = require('../models/Course')
 
 const {mutipleMongooseToObject} = require('../../unitl/mongoose.js')
 
@@ -15,7 +15,7 @@ const  SearchControllers = {
     } ,
 
     //[get] search/course/:key
-    search: async(req,res,next) => {
+    category: async(req,res,next) => {
         Courses.find(
         {
             "$or":[
@@ -30,9 +30,41 @@ const  SearchControllers = {
           })
         })
         .catch(error => next(error))
-
-}
-    
+    },
+    coin: async(req,res,next) => {
+      Courses.find(
+        {
+          //đk coin 250000 -> 500000
+          coin : { $in : [250000, 500000]}
+        }
+      )
+      .then(course => {
+        res.render('search/stored-Search', {
+          course : mutipleMongooseToObject(course),
+     
+        })
+      })
+      .catch(error => next()) 
+    },
+    search: async(req,res,next) => {
+      Courses.find({
+        "$or":[
+          {name:{$regex:req.query.search}},
+          {course:{$regex:req.query.search}}
+         
+      ]
+      })
+      .then(course => {
+        res.render('search/stored-Search', {
+          course : mutipleMongooseToObject(course),
+        })
+      })
+      .catch(error => {
+        next(error)
+      }) 
+      
+    } 
+        
 } 
 
 module.exports =  SearchControllers   

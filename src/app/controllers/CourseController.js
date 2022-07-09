@@ -2,16 +2,18 @@ const Coures = require('../models/Course');
 
 const {mongooseToObject} = require('../../unitl/mongoose.js')
 class CourseController {
-    //[GET] / new
+    //[GET] /body 
     show(req,res, next) {
       Coures.findOne({ slug: req.params.slug})
       .then(coures => {
         res.render('courses/show', { coures: mongooseToObject(coures)})
+        
       })
       .catch(next)
     }
+
   
-    //get
+    //[get]course/create
     create(req,res, next) {
       res.render('courses/create')
     }
@@ -24,7 +26,7 @@ class CourseController {
       course.save() 
       .then(() => res.redirect('/me/stored/courses'))
       .catch(error => {
-        
+        next(error)
       });
     }
     // [get] /courses/:id/edit

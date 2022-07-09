@@ -1,9 +1,9 @@
 const user = require('../models/User')
 const {mongooseToObject} = require('../../unitl/mongoose')
-
+const {mutipleMongooseToObject} =  require('../../unitl/mongoose')
 const  userControllers = {
   show: async(req,res,next) => {
-    user.findOne({id: req.params.id})
+    user.findOne({})
       .then(users =>  res.render('informationUser/updateUser', {
         users: mongooseToObject(users)
       }))

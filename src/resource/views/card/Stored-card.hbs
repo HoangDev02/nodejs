@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 pt-3">
+            <h3>Giỏ hàng</h3>
+            <p>Bạn đang có 2 sản phẩm trong giỏ hàng</p>
+            <form class="mt-4" name="container-form" method="post" action="/card" >
+      <div>
+          <h3>Khóa học của tôi</h3>
+          <div class="mt-4 d-flex align-items-center">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="checkbox-all">
+              <label class="form-check-label" for="checkbox-all">
+              Chọn tất cả 
+              </label>
+            </div>
+            <button class="btn btn-primary btn-sm  checkbox-select-all-option check-all-submit-btn disabled px-4 content-shoping"  > Thực hiện</button>
+          </div>
+      </div>
+      <table class="table mt-4">
+        <tbody>
+            <tr>
+                {{#each cards}}
+                <th scope="row">{{sum @index 1}}</th>
+                <td>{{this.name}}</td>
+                <td>{{this.course}}</td>
+                <td>{{this.amount}}</td>
+                <td>{{this.price}}</td>
+                <td>
+                    <a href=" " class="btn btn-link" data-bs-toggle="modal" data-id="{{this._id}}" data-bs-target="#delete-course-modal">Xóa</a>
+                </td>
+            </tr>
+            <tr>
+            {{else}}
+              <tr>
+                <td colspan="5" >
+                  bạn chưa mua khóa học nào
+                  <a href="/">Mua khóa học</a>
+                </td>
+              </tr>
+            {{/each}}
+        </tbody>
+      </table>
+</form>
+        </div>
+        <div class="col-lg-4 pt-5 ">
+            
+            <div class="content-right">
+              
+                <h5>Hóa đơn</h5>
+                <tbody>
+                    <p>Chưa giảm giá</p>
+                    <p>Giảm giá</p>
+                    <p>Mã giảm giá</p>
+                    <p>Tổng cộng</p>
+                    <form action="/checkout" method="get">
+                      <button class="">Thanh toán</button>
+                    </form>
+                </tbody>
+            </div>
+          
+        </div>
+    </div>
+</div>
+
+<script>
+    
+</script>

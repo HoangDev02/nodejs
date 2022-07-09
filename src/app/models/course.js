@@ -17,7 +17,7 @@ const Course = new Schema({
     benefitOne: {type: String, maxlength: 255},
     benefitTow: {type: String, maxlength: 255},
     benefitThree: {type: String, maxlength: 255},
-    coin: {type:String, required:true},
+    price: {type:String, required:true},
   },
   {
     _id: false,
@@ -28,7 +28,10 @@ const Course = new Schema({
 
   mongoose.plugin(slug);
   Course.plugin(AutoIncrement)
+ 
+
   Course.plugin(mongooseDelete,{ 
     deleteAt: true,
     overrideMethods: 'all' }) 
   module.exports = mongoose.model('Course', Course);
+  
