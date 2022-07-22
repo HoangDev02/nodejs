@@ -7,8 +7,12 @@ const checkAuthenticated = require('../app/middlewares/checkAuthenticated')
 
 
 
-router.get('/update',checkAuthenticated.checkAuthenticated, userController.show)
-router.put('/:id', userController.update)
+router.get('/:id/edit', userController.edit)
+router.post('/handle-form-actions', userController.handleFormActions)
+
+router.delete('/:id', userController.destroy)
+router.delete('/:id/force', userController.forcedestroy)
+
 
 
 module.exports = router;

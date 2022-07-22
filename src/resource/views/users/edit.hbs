@@ -1,0 +1,23 @@
+<div class="mt-4">
+    <h3>cập nhật người dùng</h3>
+    <form class="mt-4" method="post" action="/user/{{users._id}}?_method=PUT">
+        <div class="mb-3">
+            <label for="name">Tên người dùng:</label>
+            <input type="text" class="form-control" value="{{users.username}}" id="name" name="name">
+        </div>
+        <div class="mb-3">
+            <label for="email">email:</label>
+            <input type="email" class="form-control" id="description" name="description" value="{{users.email}}">
+        </div>
+        <div class="mb-3">
+            <label for="videoID" >Giới tính</label>
+            <input type="text" class="form-control" value="{{users.sex}}" id="sex" name="sex">
+        </div>
+        <div class="mb-3">
+            <label for="date">Ngày sinh</label>
+            <input type="text" class="form-control" value="{{users.date}}" id="date" name="date">
+        </div>
+        <button type="submit" class="btn btn-primary">Lưu</button>
+    </form>
+</div>
+

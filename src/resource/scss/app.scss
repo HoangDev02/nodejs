@@ -302,6 +302,13 @@ section {
     color: #000;
     border-radius: 10px;
 }
+.text-content {
+    margin-left: 55%;
+}
+.text-content a {
+    text-decoration: none;
+
+}
 .nav {
     margin-left: 220px;
     color: #000;
@@ -355,10 +362,10 @@ section {
     text-decoration: none;
     
 }
-// #username {
-//     margin-left: 24px;
-//     margin-bottom: 10px;
-// }
+#username {
+    margin-left: 24px;
+    margin-bottom: 10px;
+}
 .username {
     padding: 0 28px;
 }

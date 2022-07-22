@@ -1,25 +1,40 @@
-const user = require('../models/User')
+const User = require('../models/User')
 const {mongooseToObject} = require('../../unitl/mongoose')
-const {mutipleMongooseToObject} =  require('../../unitl/mongoose')
 const  userControllers = {
-  show: async(req,res,next) => {
-    user.findOne({})
-      .then(users =>  res.render('informationUser/updateUser', {
+  
+ 
+
+  edit:(req,res, next) => {
+    User.findByIdAndUpdate(req.params.id)
+      .then(users =>  res.render('users/edit', {
         users: mongooseToObject(users)
       }))
       .catch(next)
    
   },
-  
-  update: async(req,res,next) =>{
-    try {
-      await user.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true});
-      res.status(200).render('informationUser/updateUser')
 
-  } catch (err) {
-      next(err)
+  //delete users
+  destroy: async(req,res,next) => {
+    User.findOneAndDelete({id: req.params.id})
+      .then(() => res.redirect('back'))
+      .catch(next)
+  },
+  forcedestroy: (req,res,next) => {
+    User.deleteOne({_id: req.params.id})
+    .then(() => res.redirect('back'))
+    .catch(next)
+  },
+  handleFormActions: (req,res,next) => {
+    switch(req.body.action){
+      case 'delete':
+        User.findOneAndDelete({_id: {$in: req.body.usersIds}})
+        .then(() => res.redirect('back'))
+        .catch(next)
+        break;
+      default:
+        res.json({message: 'Action is  invaid!'})
+    }
   }
-}
   
 }
 module.exports = userControllers;

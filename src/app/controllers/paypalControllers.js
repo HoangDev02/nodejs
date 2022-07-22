@@ -1,8 +1,8 @@
-const cards = require('../models/card');
+const product = require('../models/product');
 const paypal = require('paypal-rest-sdk');
 const {mutipleMongooseToObject} = require('../../unitl/mongoose')
 
-const card =  cards({})
+const card =  product({})
 var items = JSON.stringify(card);
 const array = Object.values(card);
 

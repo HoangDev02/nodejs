@@ -25,7 +25,7 @@ db.connect();
 dotenv.config();
 
 const app =express();
-const port = 3000
+const port = 8080
   app.use(express.static(path.join(__dirname, 'public')));
   app.use(express.urlencoded({
   extended: true
@@ -52,6 +52,7 @@ app.engine('hbs',
   extname: '.hbs',
   helpers: {
     sum : (a,b) => a+b,
+
     sortable: (filed, sort) => {
       
       const sortType = filed === sort.column ? sort.type: 'default'
@@ -61,9 +62,9 @@ app.engine('hbs',
         desc:'bx bx-sort-down'
       }
       const types = {
-        default: 'desc',
-        asc: 'desc',
-        desc:'asc'
+        default: 'desc', 
+        asc: 'desc',  //tăng dần
+        desc:'asc'    // dảm vdaanf
       }
 
       const icon = icons[sortType]
@@ -94,6 +95,7 @@ app.use(cookieParser())
 app.use(express.json())
 
 
+//router/index
 route(app);
 
 

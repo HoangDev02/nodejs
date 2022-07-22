@@ -9,5 +9,6 @@ const checkAuthenticated = require('../app/middlewares/checkAuthenticated')
 
 router.get('/stored/courses',checkAuthenticated.checkAuthenticated, MeController.StoredCourses),
 router.get('/trash/courses', MeController.trashCourses)
+// router.get('/stored/courses', MeController.show)
 
 module.exports = router;   

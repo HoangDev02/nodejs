@@ -33,5 +33,6 @@ const Course = new Schema({
   Course.plugin(mongooseDelete,{ 
     deleteAt: true,
     overrideMethods: 'all' }) 
+    
   module.exports = mongoose.model('Course', Course);
   

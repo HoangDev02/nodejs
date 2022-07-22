@@ -1,6 +1,7 @@
 const user = require('../models/User')
-const middlewares = {
-    checkAuthenticated : async (req, res, next) => {
+const checkLoginUser = {
+  //check user login
+  checkAuthenticated : async (req, res, next) => {
     if (req.isAuthenticated()) {
       return next()
     }
@@ -8,7 +9,8 @@ const middlewares = {
     res.redirect('/auth/login')
   },
   
-   checkNotAuthenticated : async (req, res, next) => {
+  
+  checkNotAuthenticated : async (req, res, next) => {
     if (req.isAuthenticated()) {
       return res.redirect('/')
     }
@@ -17,4 +19,4 @@ const middlewares = {
   
 }
 
-module.exports = middlewares
+module.exports = checkLoginUser

@@ -1,0 +1,121 @@
+<form class="mt-4" name="container-form" method="post" action="/user/handle-form-actions" >
+  <div>
+      <h3>Tất cả người dùng</h3>
+       <div class="mt-4 d-flex align-items-center">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="checkbox-all">
+          <label class="form-check-label" for="checkbox-all">
+           Chọn tất cả 
+          </label>
+        </div>
+        <select class="form-control form-control-sm " name="action" required >
+          <option value="">hành động</option>
+          <option value="delete">Xóa</option>
+        </select> 
+        <button class="btn btn-primary btn-sm  checkbox-select-all-option check-all-submit-btn disabled"  > Thực hiện</button>
+      </div>
+  </div>
+{{!-- 
+  {{_sort.type}} --}}
+    <table class="table mt-4">
+      
+    <thead>   
+        <tr>
+          
+        <th scope="col">
+          Id
+        </th>
+        <th scope="col">Username
+        </th>
+        <th scope="col">Email
+        
+        </th>
+        
+        <th scope="col">CreatedAt</th>
+        <th scope="col">updateAt</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each users}}
+        <tr>
+            <td>
+                 <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="usersIds[]" value="{{this._id}}" >
+                 
+                </div>
+            </td>
+           
+            <th>{{this.username}}</th>
+            <td>{{this.email}}</td>
+            <td>{{this.createdAt}}</td>
+            <td>{{this.updatedAt}}</td>
+
+            <td>
+                <a href="/user/{{this._id}}/edit" class="btn btn-link">Sửa</a>
+               
+            </td>
+        </tr>
+        <tr>
+          {{else}}
+          <tr>
+            <td colspan="5" >
+              bạn chưa đăng khóa học nào
+              <a href="/admin/create">Đăng khóa học</a>
+            </td>
+          </tr>
+        {{/each}}
+    </tbody>
+    </table>
+</form>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var usersId;
+    
+        var checkboxAll = $('#checkbox-all')
+        var courseItemCheckBox = $('input[name="usersIds[]"]') 
+        var checkallSubmitBtn = $('.check-all-submit-btn')
+        var containerForm = document.forms['container-form']
+
+
+        $('#delete-users-modal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) 
+        usersId = button.data('id')
+    });
+
+    //click delete
+   
+    //checkbox change
+    checkboxAll.change(function () {
+      //if click -> true else -> false
+      var isCheckedAll =$(this).prop('checked') 
+      courseItemCheckBox.prop('checked',isCheckedAll)  //như kiểu if else
+      renderCheckAllSubmitBtn();
+    });
+
+    //course item checkbox change
+    courseItemCheckBox.change(function () {
+      var isCheckedAll = courseItemCheckBox.length === $('input[name="usersIds[]"]:checked').length;
+      checkboxAll.prop('checked',isCheckedAll)
+      renderCheckAllSubmitBtn();
+    })
+    //check all submit button clicked
+    
+    checkallSubmitBtn.on('submit',function (e) {
+       var isSubmittable  = !$(this).hasClass('disabled');
+      if(!isSubmittable){
+        e.preventDefault();
+      }
+    })
+    //re-render chekc all submit
+    function renderCheckAllSubmitBtn() {
+      var checkedCount = $('input[name="usersIds[]"]:checked').length;
+      if( checkedCount > 0) {
+        checkallSubmitBtn.removeClass('disabled')
+      }else {
+        checkallSubmitBtn.addClass('disabled')
+      }
+
+    }
+  })
+</script>

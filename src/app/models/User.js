@@ -23,17 +23,15 @@ const UserSchema = new mongoose.Schema({
     },
     sex: {
       type: String,
-      unique: true,
+
     },
     date: {
       type: String,
-      unique: true,
     },
     phone: {
       type: String,
-      unique: true,
     }
-    }, {timestamps: true, _id:true}
+    }, {timestamps: true, }
     
 );
     UserSchema.statics = {
@@ -49,4 +47,7 @@ const UserSchema = new mongoose.Schema({
   }
   
   mongoose.plugin(slug);
+
+  
+  
 module.exports = mongoose.model('User', UserSchema);

@@ -3,8 +3,6 @@ const Coures = require('../models/Course');
 const {mutipleMongooseToObject} = require('../../unitl/mongoose')
 class SiteController {
 
- 
-
     index(req, res, next) {
         //hiển thị màng hình
         Coures.find({})
